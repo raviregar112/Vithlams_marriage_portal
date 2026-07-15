@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Manage Advertisements</h2>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered">
+
+            <thead>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Banner</th>
+                    <th>Business</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for ad in ads %}
+
+                <tr>
+
+                    <td>{{ ad.id }}</td>
+
+                    <td>
+
+                        <img
+                        src="{{ url_for('static',
+                        filename='uploads/advertisements/' +
+                        ad.image) }}"
+                        width="120">
+
+                    </td>
+
+                    <td>
+                        {{ ad.business_name }}
+                    </td>
+
+                    <td>
+                        {{ ad.city }}
+                    </td>
+
+                    <td>
+                        {{ ad.status }}
+                    </td>
+
+                    <td>
+
+                        <a href="/approve-ad/{{ ad.id }}"
+                           class="btn btn-success btn-sm">
+                            Approve
+                        </a>
+
+                        <a href="/reject-ad/{{ ad.id }}"
+                           class="btn btn-warning btn-sm">
+                            Reject
+                        </a>
+
+                        <a href="/delete-ad/{{ ad.id }}"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete Ad?')">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+{% endblock %}

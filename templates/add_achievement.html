@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="form-card">
+
+        <div class="form-header">
+
+            <h2>🏆 Add Achievement</h2>
+
+        </div>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <div class="mb-3">
+
+                <label>Person Name</label>
+
+                <input type="text"
+                       name="person_name"
+                       class="form-control"
+                       required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Achievement Title</label>
+
+                <input type="text"
+                       name="achievement_title"
+                       class="form-control"
+                       required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Achievement Type</label>
+
+                <select name="achievement_type"
+                        class="form-control">
+
+                    <option>Government Job</option>
+                    <option>Sports</option>
+                    <option>Education</option>
+                    <option>Business</option>
+                    <option>Award</option>
+
+                </select>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>City</label>
+
+                <input type="text"
+                       name="city"
+                       class="form-control">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Description</label>
+
+                <textarea name="description"
+                          rows="4"
+                          class="form-control"></textarea>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Photo</label>
+
+                <input type="file"
+                       name="image"
+                       class="form-control">
+
+            </div>
+
+            <button class="submit-btn">
+                Save Achievement
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

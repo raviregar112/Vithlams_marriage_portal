@@ -1,0 +1,173 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="profile-card">
+
+{% if profile %}
+
+<div class="row">
+
+<div class="col-md-4 text-center">
+
+<img
+class="marriage-photo"
+
+src="{{ url_for('static',
+filename='uploads/marriage/' + profile.profile_image) }}">
+
+<h3 class="mt-3">
+
+{{ profile.full_name }}
+
+</h3>
+
+<h5>
+
+{{ profile.member_id }}
+
+</h5>
+
+{% if profile.profile_status=="Pending" %}
+
+<span class="badge bg-warning">
+
+Pending Approval
+
+</span>
+
+{% endif %}
+
+{% if profile.profile_status=="Approved" %}
+
+<span class="badge bg-success">
+
+Approved
+
+</span>
+
+{% endif %}
+
+{% if profile.profile_status=="Rejected" %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</div>
+
+<div class="col-md-8">
+
+<table class="table table-bordered">
+
+<tr>
+
+<th>Gender</th>
+
+<td>{{ profile.gender }}</td>
+
+</tr>
+
+<tr>
+
+<th>Date Of Birth</th>
+
+<td>{{ profile.date_of_birth }}</td>
+
+</tr>
+
+<tr>
+
+<th>Age</th>
+
+<td>{{ profile.age }}</td>
+
+</tr>
+
+<tr>
+
+<th>Height</th>
+
+<td>{{ profile.height }}</td>
+
+</tr>
+
+<tr>
+
+<th>Religion</th>
+
+<td>{{ profile.religion }}</td>
+
+</tr>
+
+<tr>
+
+<th>Caste</th>
+
+<td>{{ profile.caste }}</td>
+
+</tr>
+
+<tr>
+
+<th>Education</th>
+
+<td>{{ profile.education }}</td>
+
+</tr>
+
+<tr>
+
+<th>Profession</th>
+
+<td>{{ profile.profession }}</td>
+
+</tr>
+
+<tr>
+
+<th>Income</th>
+
+<td>{{ profile.annual_income }}</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+{% else %}
+
+<div class="text-center">
+
+<h3>
+
+No Marriage Profile Found
+
+</h3>
+
+<a
+href="/add-marriage"
+class="btn btn-danger">
+
+Create Marriage Profile
+
+</a>
+
+</div>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="form-card">
+
+        <div class="form-header">
+            <h2>🏪 Add Business</h2>
+        </div>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <div class="mb-3">
+                <label>Business Name</label>
+                <input type="text"
+                       name="business_name"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label>Owner Name</label>
+                <input type="text"
+                       name="owner_name"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label>Business Type</label>
+                <input type="text"
+                       name="business_type"
+                       class="form-control"
+                       placeholder="Tailor, Shop, Boutique etc">
+            </div>
+
+            <div class="mb-3">
+                <label>Mobile Number</label>
+                <input type="text"
+                       name="mobile"
+                       class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>City</label>
+                <input type="text"
+                       name="city"
+                       class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label>Address</label>
+                <textarea name="address"
+                          rows="3"
+                          class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label>Description</label>
+                <textarea name="description"
+                          rows="4"
+                          class="form-control"></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label>Business Image</label>
+                <input type="file"
+                       name="image"
+                       class="form-control">
+            </div>
+
+            <button class="submit-btn">
+                Save Business
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

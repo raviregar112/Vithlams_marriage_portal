@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="admin-panel">
+
+    <!-- Sidebar -->
+
+    <div class="admin-sidebar">
+
+        <div class="logo">
+            <h3>🛕 Vithlam's</h3>
+            <p>Admin Panel</p>
+        </div>
+
+        <ul>
+            <li class="active">
+                <a href="/admin-dashboard">
+                    <i class="fa fa-home"></i>
+                    Dashboard
+                </a>
+            </li>
+            <li>
+                <a href="/pending-profiles">
+                    <i class="fa fa-clock"></i>
+                    Pending Profiles
+                </a>
+            </li>
+             <li>
+                <a href="/add-advertisement" >
+                📢 Advertisement
+            </a>
+             </li>
+              <li>
+                <a href="/manage-ads">
+                    <i class="fa fa-bullhorn"></i>
+                    Advertisements list
+                </a>
+            </li>
+             
+            <li>
+                <a href="/logout">
+                    <i class="fa fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- Main Content -->
+    <div class="admin-content">
+        <h2>
+            Dashboard Overview
+        </h2>
+        <!-- Dashboard Cards -->
+        <div class="dashboard-grid">
+            <div class="dashboard-card users">
+                <h5>Total Users</h5>
+                <h2>{{ users }}</h2>
+            </div>
+            <div class="dashboard-card marriage">
+                <h5>Total Profiles</h5>
+                <h2>{{ marriages }}</h2>
+            </div>
+            <div class="dashboard-card pending">
+                <h5>Pending</h5>
+                <h2>{{ pending }}</h2>
+            </div>
+            <div class="dashboard-card approved">
+                <h5>Approved</h5>
+                <h2>{{ approved }}</h2>
+            </div>
+            <div class="dashboard-card rejected">
+                <h5>Rejected</h5>
+                <h2>{{ rejected }}</h2>
+            </div>
+            <div class="dashboard-card ads">
+                <h5>Advertisements</h5>
+                <h2>{{ advertisements }}</h2>
+            </div>
+        </div>
+</div>
+{% endblock %}

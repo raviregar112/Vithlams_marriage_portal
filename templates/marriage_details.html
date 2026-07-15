@@ -1,0 +1,324 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+<div class="profile-view-card">
+
+<div class="row">
+
+<div class="col-md-4 text-center">
+
+<img
+src="{{ url_for('static',
+filename='uploads/marriage/' + profile.profile_image) }}"
+class="detail-photo">
+
+<h3 class="mt-3">
+
+{{ profile.full_name }}
+
+</h3>
+
+<h5>
+
+{{ profile.member_id }}
+
+</h5>
+
+{% if profile.profile_status=="Pending" %}
+
+<span class="badge bg-warning">
+
+Pending Approval
+
+</span>
+
+{% elif profile.profile_status=="Approved" %}
+
+<span class="badge bg-success">
+
+Approved
+
+</span>
+
+{% else %}
+
+<span class="badge bg-danger">
+
+Rejected
+
+</span>
+
+{% endif %}
+
+</div>
+
+<div class="col-md-8">
+
+<h4>👤 Personal Details</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Name</th>
+<td>{{ profile.full_name }}</td>
+</tr>
+
+<tr>
+<th>Gender</th>
+<td>{{ profile.gender }}</td>
+</tr>
+
+<tr>
+<th>Date Of Birth</th>
+<td>{{ profile.date_of_birth }}</td>
+</tr>
+
+<tr>
+<th>Age</th>
+<td>{{ profile.age }}</td>
+</tr>
+
+<tr>
+<th>Birth Place</th>
+<td>{{ profile.birth_place }}</td>
+</tr>
+
+<tr>
+<th>Birth Time</th>
+<td>{{ profile.birth_time }}</td>
+</tr>
+
+<tr>
+<th>Height</th>
+<td>{{ profile.height }}</td>
+</tr>
+
+<tr>
+<th>Manglik</th>
+<td>{{ profile.manglik }}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h4>🎓 Education & Career</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Education</th>
+<td>{{ profile.education }}</td>
+</tr>
+
+<tr>
+<th>Profession</th>
+<td>{{ profile.profession }}</td>
+</tr>
+
+<tr>
+<th>Company</th>
+<td>{{ profile.company_name }}</td>
+</tr>
+
+<tr>
+<th>Income</th>
+<td>{{ profile.annual_income }}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h4>👨 Family Details</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Father</th>
+<td>{{ profile.father_name }}</td>
+</tr>
+
+<tr>
+<th>Occupation</th>
+<td>{{ profile.father_occupation }}</td>
+</tr>
+
+<tr>
+<th>Mother</th>
+<td>{{ profile.mother_name }}</td>
+</tr>
+
+<tr>
+<th>Occupation</th>
+<td>{{ profile.mother_occupation }}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h4>🕉 Gotra Details</h4>
+
+<table class="table table-bordered">
+
+<tr>
+<th>Self Gotra</th>
+<td>{{ profile.self_gotra }}</td>
+</tr>
+
+<tr>
+<th>Mother Gotra</th>
+<td>{{ profile.mother_gotra }}</td>
+</tr>
+
+<tr>
+<th>Dadi Gotra</th>
+<td>{{ profile.grandmother_gotra }}</td>
+</tr>
+
+<tr>
+<th>Nani Gotra</th>
+<td>{{ profile.maternal_grandmother_gotra }}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h4>📍 Address</h4>
+
+<p>
+
+{{ profile.address }}
+
+<br>
+
+{{ profile.city }}
+
+,
+
+{{ profile.state }}
+
+-
+
+{{ profile.pincode }}
+
+</p>
+
+<hr>
+
+<div class="text-center">
+
+<button
+type="button"
+class="btn btn-success btn-sm"
+onclick="approveProfile('{{ profile.id }}', '{{ profile.full_name|escape }}')">
+Approve
+</button>
+
+<button
+type="button"
+class="btn btn-warning btn-sm"
+onclick="rejectProfile('{{ profile.id }}', '{{ profile.full_name|escape }}')">
+Reject
+</button>
+<a
+href="/delete-marriage/{{ profile.id }}"
+class="btn btn-danger btn-lg">
+
+🗑 Delete
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function approveProfile(id,name){
+
+Swal.fire({
+
+title:'Approve Profile?',
+
+html:'<b>'+name+'</b><br><br>Are you sure you want to approve this profile?',
+
+icon:'question',
+
+showCancelButton:true,
+
+confirmButtonColor:'#28a745',
+
+cancelButtonColor:'#d33',
+
+confirmButtonText:'Approve'
+
+}).then((result)=>{
+
+if(result.isConfirmed){
+
+window.location='/approve-profile/'+id+'?from={{ page_from }}';
+
+}
+
+});
+
+}
+
+
+
+function rejectProfile(id,name){
+
+Swal.fire({
+
+title:'Reject Profile',
+
+input:'textarea',
+
+inputLabel:'Reason',
+
+inputPlaceholder:'Enter rejection reason...',
+
+showCancelButton:true,
+
+confirmButtonText:'Reject',
+
+confirmButtonColor:'#dc3545',
+
+cancelButtonColor:'#6c757d',
+
+inputValidator:(value)=>{
+
+if(!value){
+
+return 'Please enter a rejection reason';
+
+}
+
+}
+
+}).then((result)=>{
+
+if(result.isConfirmed){
+
+window.location='/reject-profile/'+id+'?from={{ page_from }}&reason='+encodeURIComponent(result.value);
+
+}
+
+});
+
+}
+
+</script>
+{% endblock %}

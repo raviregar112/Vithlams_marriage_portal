@@ -1,0 +1,212 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6 col-md-8">
+
+            <div class="register-card">
+
+                <div class="text-center mb-4">
+
+                    <h2 class="register-title">
+                        Create Your Account
+                    </h2>
+
+                    <p class="text-muted">
+                        Join Vithlam's Society
+                    </p>
+
+                </div>
+
+                <form method="POST">
+
+                    <!-- Full Name -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            👤 Full Name
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="full_name"
+                               placeholder="Enter Full Name"
+                               required>
+
+                    </div>
+
+                    <!-- Mobile -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            📱 Mobile Number
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="mobile"
+                               maxlength="10"
+                               placeholder="Enter Mobile Number"
+                               required>
+
+                    </div>
+
+                    <!-- Email -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            📧 Email Address
+                        </label>
+
+                        <input type="email"
+                               class="form-control"
+                               name="email"
+                               placeholder="Enter Email Address"
+                               required>
+
+                    </div>
+
+                    <!-- State -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            🗺️ State
+                        </label>
+
+                        <select class="form-select"
+                                name="state"
+                                required>
+
+                            <option value="">
+                                Select State
+                            </option>
+
+                            <option value="Rajasthan">
+                                Rajasthan
+                            </option>
+
+                            <option value="Gujarat">
+                                Gujarat
+                            </option>
+
+                            <option value="Madhya Pradesh">
+                                Madhya Pradesh
+                            </option>
+
+                            <option value="Maharashtra">
+                                Maharashtra
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- City -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            🏙️ City
+                        </label>
+
+                        <input type="text"
+                               class="form-control"
+                               name="city"
+                               placeholder="Enter City"
+                               required>
+
+                    </div>
+
+                    <!-- Password -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            🔒 Password
+                        </label>
+
+                        <input type="password"
+                               class="form-control"
+                               name="password"
+                               placeholder="Create Password"
+                               required>
+
+                    </div>
+
+                    <!-- Confirm Password -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            🔒 Confirm Password
+                        </label>
+
+                        <input type="password"
+                               class="form-control"
+                               name="confirm_password"
+                               placeholder="Confirm Password"
+                               required>
+
+                    </div>
+
+                    <!-- Terms -->
+
+                    <div class="form-check mb-4">
+
+                        <input class="form-check-input"
+                               type="checkbox"
+                               id="terms"
+                               required>
+
+                        <label class="form-check-label"
+                               for="terms">
+
+                            I agree to the
+                            <a href="#">
+                                Terms & Conditions
+                            </a>
+
+                        </label>
+
+                    </div>
+
+                    <!-- Register Button -->
+
+                    <button type="submit"
+                            class="register-submit-btn">
+
+                        Create Account
+
+                    </button>
+
+                </form>
+
+                <div class="text-center mt-4">
+
+                    Already have an account?
+
+                    <a href="/login">
+
+                        Login Here
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

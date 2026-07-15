@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <h2>Manage Marriage Profiles</h2>
+
+    <div class="table-responsive">
+
+        <table class="table table-bordered">
+
+                <thead>
+
+        <tr>
+        <th>ID</th>
+        <th>Photo</th>
+        <th>Name</th>
+        <th>Profession</th>
+        <th>City</th>
+        <th>Status</th>
+        <th>Action</th>
+        </tr>
+        </thead>
+
+            <tbody>
+                {% for marriage in marriages %}
+                <tr>
+                    <td>{{ marriage.id }}</td>
+                    <td>
+                       <img
+                        src="{{ url_for('static',
+                        filename='uploads/marriage/' + marriage.profile_image) }}"
+                        width="60">
+                    </td>
+                    <td>
+                        {{ marriage.full_name }}
+                    </td>
+                    <td>
+                        {{ marriage.profession }}
+                    </td>
+                    <td>
+                        {{ marriage.city }}
+                    </td>
+                    <!-- Status -->
+                        <td>
+                        {% if marriage.profile_status=="Pending" %}
+                        <span class="badge bg-warning">
+                        Pending
+                        </span>
+                        {% elif marriage.profile_status=="Approved" %}
+                        <span class="badge bg-success">
+                        Approved
+                        </span>
+                        {% else %}
+                        <span class="badge bg-danger">
+                        Rejected
+                        </span>
+                        {% endif %}
+                        </td>
+                    <td>
+                        <a href="/marriage-details/{{ marriage.id }}"
+                           class="btn btn-primary btn-sm">
+                           View
+                        </a>
+                        <!-- <a
+                            href="/approve-profile/{{ marriage.id }}"
+                            class="btn btn-success btn-sm">
+                            Approve
+                            </a>
+                          <a href="/reject-profile/{{ marriage.id }}"
+                            class="btn btn-warning btn-sm"
+                            onclick="return confirm('Reject this profile?')">
+                                Reject
+                            </a>
+                        <a href="/delete-marriage/{{ marriage.id }}"
+                           class="btn btn-danger btn-sm"
+                           onclick="return confirm('Delete Profile?')">
+                           Delete
+                        </a> -->
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

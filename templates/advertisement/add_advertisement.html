@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="form-card">
+
+        <h2>📢 Add Advertisement</h2>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <div class="mb-3">
+
+                <label>Business Name</label>
+
+                <input type="text"
+                       name="business_name"
+                       class="form-control"
+                       required>
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Mobile</label>
+
+                <input type="text"
+                       name="mobile"
+                       class="form-control">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>City</label>
+
+                <input type="text"
+                       name="city"
+                       class="form-control">
+
+            </div>
+
+            <div class="mb-3">
+
+                <label>Banner Image</label>
+
+                <input type="file"
+                       name="image"
+                       class="form-control"
+                       required>
+
+            </div>
+
+            <button class="submit-btn">
+                Submit Advertisement
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,939 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-5">
+
+<div class="wizard-card">
+
+<form
+method="POST"
+action="/add-marriage"
+enctype="multipart/form-data"
+id="marriageForm">
+
+<!-- ==========================
+PROGRESS BAR
+========================== -->
+
+<div class="progress-wrapper">
+
+<div class="progress mb-4">
+
+<div
+class="progress-bar bg-danger"
+id="progressBar"
+style="width:25%">
+
+</div>
+
+</div>
+
+<div class="step-indicator">
+
+<div class="step active">
+
+<div class="circle">
+1
+</div>
+
+<p>Personal</p>
+
+</div>
+
+<div class="step">
+
+<div class="circle">
+2
+</div>
+
+<p>Education</p>
+
+</div>
+
+<div class="step">
+
+<div class="circle">
+3
+</div>
+
+<p>Family</p>
+
+</div>
+
+<div class="step">
+
+<div class="circle">
+4
+</div>
+
+<p>Contact</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ==========================
+STEP 1
+========================== -->
+
+<div
+class="form-step active"
+id="step1">
+
+<h3 class="mb-4 text-danger">
+
+👤 Personal Details
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-8">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Full Name
+
+</label>
+
+<input
+type="text"
+name="full_name"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Gender
+
+</label>
+
+<select
+name="gender"
+class="form-select"
+required>
+
+<option value="">
+Select
+</option>
+
+<option>
+Male
+</option>
+
+<option>
+Female
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Date Of Birth
+
+</label>
+
+<input
+type="date"
+id="dob"
+name="date_of_birth"
+class="form-control"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Age
+
+</label>
+
+<input
+type="text"
+id="age"
+name="age"
+class="form-control"
+readonly>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Birth Place
+
+</label>
+
+<input
+type="text"
+name="birth_place"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Birth Time
+
+</label>
+
+<input
+type="time"
+name="birth_time"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Height
+
+</label>
+
+<input
+type="text"
+name="height"
+placeholder="5'10&quot;"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Weight
+
+</label>
+
+<input
+type="text"
+name="weight"
+placeholder="70 KG"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Manglik
+
+</label>
+
+<select
+name="manglik"
+class="form-select">
+
+<option value="">
+Select
+</option>
+
+<option>
+Yes
+</option>
+
+<option selected>
+No
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Religion
+
+</label>
+
+<select
+name="religion"
+class="form-select">
+
+<option value="">
+Select Religion
+</option>
+
+<option>
+Hindu
+</option>
+
+<option>
+Jain
+</option>
+
+<option>
+Sikh
+</option>
+
+<option>
+Muslim
+</option>
+
+<option>
+Christian
+</option>
+
+<option>
+Other
+</option>
+
+</select>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Caste
+
+</label>
+
+<input
+type="text"
+name="caste"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>
+
+Sub Caste
+
+</label>
+
+<input
+type="text"
+name="sub_caste"
+class="form-control">
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE PHOTO -->
+
+<div class="col-md-4">
+
+<div class="photo-card text-center">
+
+<img
+src="{{ url_for('static',filename='images/default.png') }}"
+id="photoPreview"
+class="profile-preview">
+
+<input
+type="file"
+name="profile_image"
+id="profileImage"
+accept=".jpg,.jpeg,.png,.webp"
+class="form-control mt-3">
+
+<p class="small text-muted mt-2">
+
+Upload Profile Photo
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="text-end mt-4">
+
+<button
+type="button"
+class="btn btn-danger btn-lg"
+id="next1">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+STEP 2 STARTS HERE
+(Part-1B me continue hoga)
+========================== -->
+<!-- ==========================
+STEP 2
+========================== -->
+
+<div
+class="form-step"
+id="step2"
+style="display:none;">
+
+<h3 class="mb-4 text-danger">
+
+🎓 Education & Career
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Highest Education
+
+</label>
+
+<input
+type="text"
+name="education"
+class="form-control"
+placeholder="B.Tech / M.Tech / MBA">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Profession
+
+</label>
+
+<input
+type="text"
+name="profession"
+class="form-control"
+placeholder="Software Engineer">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Company Name
+
+</label>
+
+<input
+type="text"
+name="company_name"
+class="form-control"
+placeholder="Google / TCS / Infosys">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+
+Annual Income
+
+</label>
+
+<input
+type="text"
+name="annual_income"
+class="form-control"
+placeholder="10 LPA">
+
+</div>
+
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-secondary btn-lg"
+id="previous1">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+class="btn btn-danger btn-lg"
+id="next2">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+<!-- ==========================
+STEP 3
+========================== -->
+
+<div
+class="form-step"
+id="step3"
+style="display:none;">
+
+<h3 class="mb-4 text-danger">
+
+👨 Family Details
+
+</h3>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label>Father Name</label>
+
+<input
+type="text"
+name="father_name"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Father Occupation</label>
+
+<input
+type="text"
+name="father_occupation"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Mother Name</label>
+
+<input
+type="text"
+name="mother_name"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Mother Occupation</label>
+
+<input
+type="text"
+name="mother_occupation"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+    <label>Self Gotra</label>
+
+    <input
+        type="text"
+        name="self_gotra"
+        class="form-control"
+        list="gotraList"
+        placeholder="Select or Type Gotra">
+
+</div>
+<div class="col-md-6 mb-3">
+
+    <label>Mother Gotra</label>
+
+    <input
+        type="text"
+        name="mother_gotra"
+        class="form-control"
+        list="gotraList"
+        placeholder="Select or Type Gotra">
+
+</div>
+<div class="col-md-6 mb-3">
+
+    <label>Dadi Gotra</label>
+
+    <input
+        type="text"
+        name="grandmother_gotra"
+        class="form-control"
+        list="gotraList"
+        placeholder="Select or Type Gotra">
+
+</div>
+<div class="col-md-6 mb-3">
+
+    <label>Nani Gotra</label>
+
+    <input
+        type="text"
+        name="maternal_grandmother_gotra"
+        class="form-control"
+        list="gotraList"
+        placeholder="Select or Type Gotra">
+
+</div>
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-secondary btn-lg"
+id="previous2">
+
+← Previous
+
+</button>
+
+<button
+type="button"
+class="btn btn-danger btn-lg"
+id="next3">
+
+Next →
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==========================
+STEP 4
+========================== -->
+
+<div
+class="form-step"
+id="step4"
+style="display:none;">
+
+<h3 class="mb-4 text-danger">
+
+🏠 Address & Contact
+
+</h3>
+
+<div class="row">
+
+<div class="col-12 mb-3">
+
+<label>Full Address</label>
+
+<textarea
+name="address"
+rows="4"
+class="form-control"></textarea>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>State</label>
+
+<input
+type="text"
+name="state"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>City</label>
+
+<input
+type="text"
+name="city"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Pincode</label>
+
+<input
+type="text"
+name="pincode"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>WhatsApp Number</label>
+
+<input
+type="text"
+name="whatsapp"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Contact Number</label>
+
+<input
+type="text"
+name="contact_number"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Alternate Contact</label>
+
+<input
+type="text"
+name="alternate_contact"
+class="form-control">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label>Email</label>
+
+<input
+type="email"
+name="email"
+class="form-control">
+
+</div>
+
+</div>
+
+<div class="d-flex justify-content-between mt-4">
+
+<button
+type="button"
+class="btn btn-secondary btn-lg"
+id="previous3">
+
+← Previous
+
+</button>
+
+<button
+type="submit"
+class="btn btn-success btn-lg">
+
+💾 Save Marriage Profile
+
+</button>
+
+</div>
+
+</div>
+
+</form>
+<!-- datalist -->
+ <datalist id="gotraList">
+
+    <option value="AMARWAL">
+    <option value="ANCHERA">
+    <option value="BAGHERWAL">
+    <option value="BAKLIWAL">
+    <option value="BANDIWAL">
+    <option value="CHACHODIA">
+    <option value="CHICHODIA">
+    <option value="CHITTORA">
+    <option value="DHANOPIA">
+    <option value="DHUMASH">
+    <option value="DIGGIWAL">
+    <option value="DOSAYA">
+    <option value="GOTHARWAL">
+    <option value="GUJRANIA">
+    <option value="JAJPURA">
+    <option value="KHICHI">
+    <option value="MEDATWAL">
+    <option value="MULTANI">
+    <option value="NAIWAL">
+    <option value="SARAVAGI">
+    <option value="SOPURA">
+    <option value="TONGARIYA">
+    <option value="UDAIWAL">
+
+</datalist>
+
+</div>
+
+</div>
+
+<script>
+
+//==============================
+// STEPS
+//==============================
+
+const steps=[
+document.getElementById("step1"),
+document.getElementById("step2"),
+document.getElementById("step3"),
+document.getElementById("step4")
+];
+
+const circles=document.querySelectorAll(".step");
+
+const progress=document.getElementById("progressBar");
+
+let currentStep=0;
+
+function showStep(index){
+
+steps.forEach(function(step){
+
+step.style.display="none";
+
+});
+
+steps[index].style.display="block";
+
+progress.style.width=((index+1)*25)+"%";
+
+circles.forEach(function(circle){
+
+circle.classList.remove("active");
+
+});
+
+for(let i=0;i<=index;i++){
+
+circles[i].classList.add("active");
+
+}
+
+currentStep=index;
+
+}
+
+showStep(0);
+
+
+//==============================
+// NEXT BUTTONS
+//==============================
+
+document.getElementById("next1").onclick=function(){
+
+showStep(1);
+
+}
+
+document.getElementById("next2").onclick=function(){
+
+showStep(2);
+
+}
+
+document.getElementById("next3").onclick=function(){
+
+showStep(3);
+
+}
+
+
+//==============================
+// PREVIOUS BUTTONS
+//==============================
+
+document.getElementById("previous1").onclick=function(){
+
+showStep(0);
+
+}
+
+document.getElementById("previous2").onclick=function(){
+
+showStep(1);
+
+}
+
+document.getElementById("previous3").onclick=function(){
+
+showStep(2);
+
+}
+
+
+//==============================
+// AGE CALCULATE
+//==============================
+
+document.getElementById("dob").addEventListener("change",function(){
+
+let dob=new Date(this.value);
+
+let today=new Date();
+
+let age=today.getFullYear()-dob.getFullYear();
+
+let m=today.getMonth()-dob.getMonth();
+
+if(m<0 || (m===0 && today.getDate()<dob.getDate())){
+
+age--;
+
+}
+
+document.getElementById("age").value=age+" Years";
+
+});
+
+
+//==============================
+// IMAGE PREVIEW
+//==============================
+
+document.getElementById("profileImage").addEventListener("change",function(e){
+
+const reader=new FileReader();
+
+reader.onload=function(){
+
+document.getElementById("photoPreview").src=reader.result;
+
+}
+
+reader.readAsDataURL(e.target.files[0]);
+
+});
+
+</script>
+{% endblock %}

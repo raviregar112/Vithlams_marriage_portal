@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="card shadow p-4">
+
+        <div class="text-center">
+
+            <img src="{{ url_for('static',
+            filename='uploads/profiles/' +
+            marriage.profile_image) }}"
+            width="250"
+            class="img-fluid rounded">
+
+        </div>
+
+        <hr>
+
+        <h3>{{ marriage.full_name }}</h3>
+
+        <p><strong>Gender:</strong> {{ marriage.gender }}</p>
+
+        <p><strong>DOB:</strong> {{ marriage.dob }}</p>
+
+        <p><strong>Birth Place:</strong> {{ marriage.birth_place }}</p>
+
+        <p><strong>Education:</strong> {{ marriage.education }}</p>
+
+        <p><strong>Profession:</strong> {{ marriage.profession }}</p>
+
+        <p><strong>Income:</strong> {{ marriage.self_earning }}</p>
+
+        <p><strong>Height:</strong> {{ marriage.height }}</p>
+
+        <hr>
+
+        <h4>Family Details</h4>
+
+        <p><strong>Father:</strong> {{ marriage.father_name }}</p>
+
+        <p><strong>Father Occupation:</strong> {{ marriage.father_occupation }}</p>
+
+        <p><strong>Mother:</strong> {{ marriage.mother_name }}</p>
+
+        <p><strong>Mother Occupation:</strong> {{ marriage.mother_occupation }}</p>
+
+        <hr>
+
+        <h4>Samaj Details</h4>
+
+        <p><strong>Gotra:</strong> {{ marriage.gotra }}</p>
+
+        <p><strong>Father Gotra:</strong> {{ marriage.father_gotra }}</p>
+
+        <p><strong>Mother Gotra:</strong> {{ marriage.mother_gotra }}</p>
+
+        <hr>
+
+        <h4>Contact Details</h4>
+
+        <p><strong>Self Contact:</strong> {{ marriage.self_contact }}</p>
+
+        <p><strong>Father Contact:</strong> {{ marriage.father_contact }}</p>
+
+        <p><strong>Address:</strong> {{ marriage.address }}</p>
+
+        <p><strong>City:</strong> {{ marriage.city }}</p>
+
+        <p><strong>State:</strong> {{ marriage.state }}</p>
+
+    </div>
+
+</div>
+
+{% endblock %}
