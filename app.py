@@ -19,7 +19,12 @@ app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-app.secret_key = "marriage_portal_secret"
+import os
+
+app.secret_key = os.environ.get(
+    "SECRET_KEY",
+    "marriage_portal_secret_vithlams"
+)
 
 # ==============================
 # User Login Required
