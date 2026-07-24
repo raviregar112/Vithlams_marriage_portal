@@ -16,7 +16,9 @@ MOBILE HEADER
 
     background:#7b1113;
 
-    padding:10px 15px;
+    padding:12px 15px;
+    
+    min-height:95px;
 
     display:flex;
 
@@ -71,19 +73,23 @@ margin-bottom:6px;
 
 .header-title{
 
-margin:0;
+display:block !important;
 
-font-size:12px;
+font-size:13px;
 
 font-weight:700;
 
-color:#7B1113;
+color:#7B1113 !important;
 
-white-space:nowrap;
+margin-top:5px;
+
+margin-bottom:0;
 
 text-align:center;
 
-line-height:1.2;
+white-space:nowrap;
+
+line-height:18px;
 
 }
 .header-brand h5{
@@ -215,74 +221,99 @@ ANNOUNCEMENT BAR
 
 }
 
-
 /*=========================
 WHATSAPP BUTTON
 =========================*/
 
 .whatsapp-section{
 
-    padding:18px;
+padding:12px 15px;
 
-    background:#fff;
+background:#fff;
 
 }
 
 .whatsapp-btn{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    flex-direction:column;
+gap:10px;
 
-    gap:3px;
+background:#25D366;
 
-    background:#1E8E3E;
+color:#fff;
 
-    color:#fff;
+text-decoration:none;
 
-    text-decoration:none;
+padding:12px 18px;
 
-    padding:15px;
+border-radius:14px;
 
-    border-radius:16px;
+font-size:17px;
 
-    font-size:20px;
+font-weight:600;
 
-    font-weight:700;
+box-shadow:0 5px 15px rgba(0,0,0,.12);
 
-    transition:.3s;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
-
-}
-
-.whatsapp-btn span{
-
-    font-size:14px;
-
-    font-weight:400;
-
-    opacity:.9;
-
-}
-
-.whatsapp-btn:hover{
-
-    background:#177b34;
-
-    color:#fff;
-
-    transform:translateY(-2px);
+transition:.3s;
 
 }
 
 .whatsapp-btn i{
 
-    font-size:30px;
+font-size:22px;
+
+}
+
+.whatsapp-btn span{
+
+display:block;
+
+font-size:12px;
+
+font-weight:400;
+
+opacity:.9;
+
+}
+
+.whatsapp-btn:hover{
+
+background:#1EBE5D;
+
+color:#fff;
+
+transform:translateY(-2px);
+
+}
+
+@media(max-width:768px){
+
+.whatsapp-btn{
+
+padding:10px 14px;
+
+font-size:15px;
+
+gap:8px;
+
+}
+
+.whatsapp-btn i{
+
+font-size:20px;
+
+}
+
+.whatsapp-btn span{
+
+font-size:11px;
+
+}
 
 }
 /*=========================
@@ -291,69 +322,67 @@ PREMIUM ADVERTISEMENT
 
 .ad-carousel{
 
-    margin:18px 15px;
+margin:15px;
 
 }
 
 .ad-banner{
 
-    border-radius:20px;
+background:#fff;
 
-    overflow:hidden;
+border-radius:20px;
 
-    box-shadow:0 8px 25px rgba(0,0,0,.15);
+overflow:hidden;
+
+box-shadow:0 8px 20px rgba(0,0,0,.12);
+
+}
+
+.ad-media{
+
+width:100%;
+
+height:220px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#f8f8f8;
+
+overflow:hidden;
 
 }
 
 .ad-image{
 
-    width:100%;
+max-width:100%;
 
-    height:220px;
+max-height:100%;
 
-    object-fit:cover;
+width:auto;
 
-    display:block;
+height:auto;
+
+object-fit:contain;
+
+display:block;
 
 }
 
 .carousel-inner{
 
-    border-radius:20px;
-
-}
-
-.carousel-control-prev,
-.carousel-control-next{
-
-    width:40px;
-
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon{
-
-    background-color:rgba(0,0,0,.45);
-
-    border-radius:50%;
-
-    padding:18px;
+border-radius:20px;
 
 }
 
 @media(max-width:768px){
 
-.ad-carousel{
-
-margin:12px;
-
-}
-
-.ad-image{
+.ad-media{
 
 height:170px;
-
-border-radius:18px;
 
 }
 
