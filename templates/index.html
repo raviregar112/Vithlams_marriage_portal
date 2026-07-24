@@ -366,84 +366,44 @@ Most Popular Verified Members
 {% for marriage in marriages %}
 
 <div class="swiper-slide">
-<div class="featured-card">
 
-    <div class="featured-image-box">
+<a href="/public-profile/{{ marriage.id }}"
+class="featured-card">
 
-        <img
-        src="{{ url_for('static',
-        filename='uploads/marriage/' + marriage.profile_image) }}"
-        class="featured-image">
+<img
+src="{{ url_for('static',
+filename='uploads/marriage/' + marriage.profile_image) }}"
+class="featured-image">
 
-        <span class="verified-badge">
+<div class="featured-overlay">
 
-            <i class="fa-solid fa-circle-check"></i>
+<span class="verified-badge">
+<i class="fa-solid fa-circle-check"></i>
+Verified
+</span>
 
-            Verified
+<div class="featured-text">
 
-        </span>
+<h4>
+{{ marriage.full_name }}, {{ marriage.age }}
+</h4>
 
-    </div>
-
-    <div class="featured-content">
-
-        <h4>
-
-            {{ marriage.full_name }}
-
-        </h4>
-
-        <div class="profile-info">
-
-            <span>
-
-                <i class="fa-solid fa-cake-candles"></i>
-
-                {{ marriage.age }} Years
-
-            </span>
-
-            <span>
-
-                <i class="fa-solid fa-location-dot"></i>
-
-                {{ marriage.city }}
-
-            </span>
-
-            <span>
-
-                <i class="fa-solid fa-briefcase"></i>
-
-                {{ marriage.profession }}
-
-            </span>
-
-        </div>
-
-        <a
-        href="/public-profile/{{ marriage.id }}"
-        class="featured-btn">
-
-            <i class="fa-solid fa-heart"></i>
-
-            View Profile
-
-        </a>
-
-    </div>
+<p>
+<i class="fa-solid fa-location-dot"></i>
+{{ marriage.city }}
+</p>
 
 </div>
+
+</div>
+
+</a>
 
 </div>
 
 {% endfor %}
 
 </div>
-
-<div class="swiper-button-next"></div>
-
-<div class="swiper-button-prev"></div>
 
 <div class="swiper-pagination"></div>
 
@@ -788,40 +748,27 @@ rows:2
 });
 </script>
 <script>
-new Swiper(".successSwiper",{
+var swiper = new Swiper(".featuredSwiper", {
+
+slidesPerView:2,
+
+spaceBetween:15,
 
 loop:true,
 
-spaceBetween:20,
-
-autoplay:{
-
-delay:3500,
-
-disableOnInteraction:false
-
-},
-
 pagination:{
-
-el:".successSwiper .swiper-pagination",
-
-clickable:true
-
+el:".swiper-pagination",
+clickable:true,
 },
 
 breakpoints:{
 
-0:{
-slidesPerView:1.1
-},
-
 768:{
-slidesPerView:2
+slidesPerView:3,
 },
 
-1200:{
-slidesPerView:3
+1024:{
+slidesPerView:4,
 }
 
 }
