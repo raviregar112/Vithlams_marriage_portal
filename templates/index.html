@@ -1,31 +1,43 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<!-- Announcement Bar -->
 
-<div class="navbar-custom">
-<div class="ads-marquee">
+<div class="announcement-bar">
 
-    <div class="ads-marquee-text">
+    <div class="announcement-text">
+        <i class="fa-solid fa-bullhorn"></i>
 
-        🚀 Grow your Business with our Advertisement Service •
-        📢 Contact Us for Advertisement •
-        📱 Click "Advertise With Us" to Promote Your Business •
-        🚀 Grow your Business with our Advertisement Service •
+        <marquee behavior="scroll" direction="left" scrollamount="4">
+
+            🚀 Grow your Business with our Advertisement Service •
+            📢 Contact Us for Advertisement •
+            💼 Promote your Business on Shri Vithlam's Society LLP •
+
+        </marquee>
 
     </div>
 
 </div>
-<a href="https://wa.me/9602006250?text=Hello,%20I%20want%20to%20advertise%20my%20business%20on%20Shri%20Vithlam's%20Society%20LLP."
-   target="_blank"
-   class="btn btn-success btn-lg">
 
-    📱💬 Contact on WhatsApp
+<!-- WhatsApp CTA -->
 
-</a>
+<div class="whatsapp-section">
+
+    <a href="https://wa.me/9602006250?text=Hello,%20I%20want%20to%20advertise%20my%20business%20on%20Shri%20Vithlam's%20Society%20LLP."
+       target="_blank"
+       class="whatsapp-btn">
+
+        <i class="fab fa-whatsapp"></i>
+
+        Contact on WhatsApp
+
+        <span>We are here to help you</span>
+
+    </a>
 
 </div>
-
-<!-- Advertisement -->
+<!-- Advertisement Banner -->
 
 <div id="carouselExample"
      class="carousel slide ad-carousel"
@@ -39,43 +51,19 @@
 
             <div class="ad-banner">
 
-                <img src="{{ url_for('static',
-                filename='uploads/advertisements/' +
-                ad.image) }}"
-                class="ad-image">
+                <img
+                src="{{ url_for('static',
+                filename='uploads/advertisements/' + ad.image) }}"
+                class="ad-image"
+                alt="Advertisement">
 
-                <div class="ad-overlay">
-
-                    <h3>{{ ad.business_name }}</h3>
-
-                    <p>{{ ad.title }}</p>
-
-                    <span>📍 {{ ad.city }}</span>
-
-                </div>
             </div>
+
         </div>
 
         {% endfor %}
 
     </div>
-
-    <button class="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev">
-
-        <span class="carousel-control-prev-icon"></span>
-
-    </button>
-    <button class="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next">
-
-        <span class="carousel-control-next-icon"></span>
-
-    </button>
 
 </div>
 <!--==========================
@@ -86,70 +74,65 @@ PREMIUM SEARCH SECTION
 
     <div class="premium-search-box">
 
-        <h3 class="text-center mb-4">
+        <h3>
             💍 Find Your Perfect Life Partner
         </h3>
 
         <form method="GET" action="/">
 
-            <div class="row g-3 align-items-end">
+            <div class="search-row">
 
-                <div class="col-md">
+                <!-- Age -->
+
+                <div class="search-item">
+
                     <label>Age</label>
-                    <input type="number"
-                           name="age"
-                           class="form-control"
-                           placeholder="Age">
+
+                    <input
+                    type="number"
+                    name="age"
+                    class="form-control"
+                    placeholder="Age">
+
                 </div>
 
-                <div class="col-md">
+                <!-- City -->
+
+                <div class="search-item">
+
                     <label>City</label>
-                    <input type="text"
-                           name="city"
-                           class="form-control"
-                           placeholder="City">
+
+                    <input
+                    type="text"
+                    name="city"
+                    class="form-control"
+                    placeholder="City">
+
                 </div>
 
-                <div class="col-md">
+                <!-- Profession -->
+
+                <div class="search-item">
+
                     <label>Profession</label>
-                    <input type="text"
-                           name="profession"
-                           class="form-control"
-                           placeholder="Profession">
-                </div>
 
-                <div class="col-md">
-                    <label>Education</label>
-                    <input type="text"
-                           name="education"
-                           class="form-control"
-                           placeholder="Education">
-                </div>
-
-                <div class="col-md">
-                    <label>Gotra</label>
-                    <input type="text"
-                           name="gotra"
-                           class="form-control"
-                           placeholder="Gotra">
-                </div>
-
-                <div class="col-md">
-                    <label>Manglik</label>
-
-                    <select name="manglik" class="form-control">
-                        <option value="">Select</option>
-                        <option>Yes</option>
-                        <option>No</option>
-                    </select>
+                    <input
+                    type="text"
+                    name="profession"
+                    class="form-control"
+                    placeholder="Profession">
 
                 </div>
 
-                <div class="col-md-auto">
+                <!-- Search -->
 
-                    <button class="btn btn-danger px-4 w-100">
+                <div class="search-btn-box">
 
-                        🔍 Search
+                    <button class="search-btn">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        Search
 
                     </button>
 
@@ -157,12 +140,83 @@ PREMIUM SEARCH SECTION
 
             </div>
 
+            <!-- Advanced Search -->
+
+            <details class="advanced-search">
+
+                <summary>
+
+                    <i class="fa-solid fa-sliders"></i>
+
+                    Advanced Search
+
+                </summary>
+
+                <div class="advanced-grid">
+
+                    <div>
+
+                        <label>Education</label>
+
+                        <input
+                        type="text"
+                        name="education"
+                        class="form-control"
+                        placeholder="Education">
+
+                    </div>
+
+                    <div>
+
+                        <label>Gotra</label>
+
+                        <input
+                        type="text"
+                        name="gotra"
+                        class="form-control"
+                        placeholder="Gotra">
+
+                    </div>
+
+                    <div>
+
+                        <label>Manglik</label>
+
+                        <select
+                        name="manglik"
+                        class="form-control">
+
+                            <option value="">
+
+                                Select
+
+                            </option>
+
+                            <option>
+
+                                Yes
+
+                            </option>
+
+                            <option>
+
+                                No
+
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </details>
+
         </form>
 
     </div>
 
 </div>
-
 <!--====================================
 LIVE COUNTERS
 =====================================-->
@@ -312,27 +366,72 @@ Most Popular Verified Members
 {% for marriage in marriages %}
 
 <div class="swiper-slide">
-
 <div class="featured-card">
 
-<img
-src="{{ url_for('static',
-filename='uploads/marriage/' + marriage.profile_image) }}">
+    <div class="featured-image-box">
 
-<h5>{{ marriage.full_name }}</h5>
+        <img
+        src="{{ url_for('static',
+        filename='uploads/marriage/' + marriage.profile_image) }}"
+        class="featured-image">
 
-<p>🎂 {{ marriage.age }} Years</p>
+        <span class="verified-badge">
 
-<p>📍 {{ marriage.city }}</p>
+            <i class="fa-solid fa-circle-check"></i>
 
-<p>💼 {{ marriage.profession }}</p>
+            Verified
 
-<a href="/public-profile/{{ marriage.id }}"
-class="featured-btn">
+        </span>
 
-View Profile
+    </div>
 
-</a>
+    <div class="featured-content">
+
+        <h4>
+
+            {{ marriage.full_name }}
+
+        </h4>
+
+        <div class="profile-info">
+
+            <span>
+
+                <i class="fa-solid fa-cake-candles"></i>
+
+                {{ marriage.age }} Years
+
+            </span>
+
+            <span>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                {{ marriage.city }}
+
+            </span>
+
+            <span>
+
+                <i class="fa-solid fa-briefcase"></i>
+
+                {{ marriage.profession }}
+
+            </span>
+
+        </div>
+
+        <a
+        href="/public-profile/{{ marriage.id }}"
+        class="featured-btn">
+
+            <i class="fa-solid fa-heart"></i>
+
+            View Profile
+
+        </a>
+
+    </div>
 
 </div>
 
@@ -353,7 +452,6 @@ View Profile
 </div>
 
 </section>
-
 <!--====================================
 SUCCESS STORIES
 =====================================-->
@@ -362,30 +460,32 @@ SUCCESS STORIES
 
 <div class="container">
 
-<div class="text-center mb-5">
+<div class="section-header">
 
 <h2 class="section-title">
-
 ❤️ Success Stories
-
 </h2>
 
-<p class="text-muted">
-
+<p>
 Families united through Tailor Samaj Marriage Portal
-
 </p>
 
 </div>
 
-<div class="row">
+<div class="swiper successSwiper">
 
-<div class="col-lg-4 col-md-6 mb-4">
+<div class="swiper-wrapper">
+
+<!-- Card 1 -->
+
+<div class="swiper-slide">
 
 <div class="success-card">
 
 <img src="{{ url_for('static',
 filename='images/couple1.jpg') }}">
+
+<div class="success-content">
 
 <h4>
 
@@ -395,14 +495,13 @@ Ravi ❤️ Pooja
 
 <p>
 
-"We found each other through Tailor Samaj Marriage Portal.
-Thank you for helping us begin our new journey."
+"We found each other through Tailor Samaj Marriage Portal. Thank you for helping us begin our new journey."
 
 </p>
 
 <div class="stars">
 
-⭐⭐⭐⭐⭐
+★★★★★
 
 </div>
 
@@ -410,12 +509,18 @@ Thank you for helping us begin our new journey."
 
 </div>
 
-<div class="col-lg-4 col-md-6 mb-4">
+</div>
+
+<!-- Card 2 -->
+
+<div class="swiper-slide">
 
 <div class="success-card">
 
 <img src="{{ url_for('static',
 filename='images/couple2.jpg') }}">
+
+<div class="success-content">
 
 <h4>
 
@@ -425,14 +530,13 @@ Rahul ❤️ Neha
 
 <p>
 
-"Our families connected through this portal.
-Everything was simple, safe and trusted."
+"Our families connected through this portal. Everything was simple, safe and trusted."
 
 </p>
 
 <div class="stars">
 
-⭐⭐⭐⭐⭐
+★★★★★
 
 </div>
 
@@ -440,12 +544,18 @@ Everything was simple, safe and trusted."
 
 </div>
 
-<div class="col-lg-4 col-md-6 mb-4">
+</div>
+
+<!-- Card 3 -->
+
+<div class="swiper-slide">
 
 <div class="success-card">
 
 <img src="{{ url_for('static',
 filename='images/couple3.jpg') }}">
+
+<div class="success-content">
 
 <h4>
 
@@ -455,14 +565,13 @@ Deepak ❤️ Komal
 
 <p>
 
-"Thank you Vithlam's Society
-for making our dream come true."
+"Thank you Vithlam's Society for making our dream come true."
 
 </p>
 
 <div class="stars">
 
-⭐⭐⭐⭐⭐
+★★★★★
 
 </div>
 
@@ -474,134 +583,62 @@ for making our dream come true."
 
 </div>
 
-</section>
+<div class="swiper-pagination"></div>
 
-<!--====================================
-PREMIUM FOOTER
-=====================================-->
+</div>
 
-<footer class="premium-footer">
+</div>
+
+</section> 
+               <footer class="premium-footer">
 
 <div class="container">
 
-<div class="row">
+<div class="footer-top">
 
-<!-- About -->
+<div class="footer-brand">
 
-<div class="col-lg-4 col-md-6 mb-4">
+<img
+src="{{ url_for('static', filename='images/logo.png') }}"
+class="footer-logo">
 
-<h3 class="footer-title">
-
-💍 Vithlam's Society
-
-</h3>
-
-<p class="footer-about">
-
-Vithlam's Society is a trusted platform
-where verified families connect to find suitable life
-partners in a safe and secure environment.
-
-</p>
-
-<div class="footer-social">
-
-<a href="#"><i class="fab fa-facebook-f"></i></a>
-
-<a href="#"><i class="fab fa-instagram"></i></a>
-
-<a href="#"><i class="fab fa-youtube"></i></a>
-
-<a href="#"><i class="fab fa-whatsapp"></i></a>
-
-</div>
-
-</div>
-
-
-<!-- Quick Links -->
-
-<div class="col-lg-2 col-md-6 mb-4">
-
-<h4 class="footer-title">
-
-Quick Links
-
-</h4>
-
-<ul class="footer-links">
-
-<li><a href="/">🏠 Home</a></li>
-
-<li><a href="/register">📝 Register</a></li>
-
-<li><a href="/login">🔑 Login</a></li>
-
-<li><a href="/contact">📞 Contact</a></li>
-
-</ul>
-
-</div>
-
-
-<!-- Useful -->
-
-<div class="col-lg-3 col-md-6 mb-4">
-
-<h4 class="footer-title">
-
-Useful Links
-
-</h4>
-
-<ul class="footer-links">
-
-<li><a href="#">Privacy Policy</a></li>
-
-<li><a href="#">Terms & Conditions</a></li>
-
-<li><a href="#">Help Center</a></li>
-
-<li><a href="#">FAQ</a></li>
-
-<li><a href="#">Report Profile</a></li>
-
-</ul>
-
-</div>
-
-
-<!-- Contact -->
-
-<div class="col-lg-3 col-md-6 mb-4">
-
-<h4 class="footer-title">
-
-Contact Us
-
-</h4>
+<h4>Shri Vithlam's Society LLP</h4>
 
 <p>
 
-📍 Bhilwara, Rajasthan
+Trusted Matrimony Platform
+
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<a href="/">Home</a>
+
+<a href="/register">Register</a>
+
+<a href="/login">Login</a>
+
+<a href="/contact">Contact</a>
+
+</div>
+
+<div class="footer-contact">
+
+<p>
+
+<i class="fa-solid fa-location-dot"></i>
+
+Bhilwara, Rajasthan
 
 </p>
 
 <p>
 
-📱 +91 XXXXX XXXXX
+<i class="fa-solid fa-phone"></i>
 
-</p>
-
-<p>
-
-📧 info@Vithlams's.com
-
-</p>
-
-<p>
-
-🕒 Mon - Sat : 9 AM - 7 PM
++91 XXXXX XXXXX
 
 </p>
 
@@ -609,39 +646,17 @@ Contact Us
 
 </div>
 
-<hr class="footer-line">
+<hr>
 
 <div class="footer-bottom">
 
-<p>
-
-© 2026 Vithlam's Society LLP.
-
-All Rights Reserved.
-
-</p>
-
-<p>
-
-Designed & Developed by Ravi Regar ❤️
-
-</p>
+© 2026 Shri Vithlam's Society LLP | Designed by Ravi Regar ❤️
 
 </div>
 
 </div>
 
 </footer>
-
-
-<!-- Back To Top -->
-
-<button id="topBtn">
-
-⬆
-
-</button>
-
 #=======
 #Scriptss 
 #========
@@ -772,4 +787,44 @@ rows:2
 
 });
 </script>
+<script>
+new Swiper(".successSwiper",{
+
+loop:true,
+
+spaceBetween:20,
+
+autoplay:{
+
+delay:3500,
+
+disableOnInteraction:false
+
+},
+
+pagination:{
+
+el:".successSwiper .swiper-pagination",
+
+clickable:true
+
+},
+
+breakpoints:{
+
+0:{
+slidesPerView:1.1
+},
+
+768:{
+slidesPerView:2
+},
+
+1200:{
+slidesPerView:3
+}
+
+}
+
+});</script>
 {% endblock %}

@@ -13,123 +13,81 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 
 <body>
-<!-- Header -->
+<!-- ================= HEADER ================= -->
 
-<div class="top-header">
-<a href="/" class="logo text-decoration-none">
+<header class="mobile-header">
 
-    <img src="{{ url_for('static', filename='images/logo.png') }}"
-         class="site-logo"
-         alt="Logo">
-
-    <h5 class="site-title">
-        Shri Vithlam's Society LLP
-    </h5>
-
-</a>
-    <div class="auth-btns">
-
-       {% if 'user_id' in session %}
-
-<div class="dropdown profile-dropdown">
-
-   <a class="profile-btn dropdown-toggle"
-   href="#"
-   data-bs-toggle="dropdown">
-
-<img
-class="nav-profile-img"
-src="{{ url_for('static',
-filename='uploads/users/' + (session.get('profile_photo') or 'default.png')) }}">
-
-{{ session['full_name'] }}
-
-</a>
-
-    <ul class="dropdown-menu dropdown-menu-end shadow">
-
-        <li>
-
-            <a class="dropdown-item"
-               href="/profile">
-
-                👤 My Profile
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="dropdown-item"
-               href="/my-marriage-profile">
-
-                💍 My Marriage Profile
-
-            </a>
-
-        </li>
-        <li>
-
-            <a class="dropdown-item"
-            href="/add-marriage">
-
-                ➕ Add Marriage Profile
-
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="dropdown-item" href="/id-card">
-            🪪 My ID Card
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="dropdown-item"
-               href="/change-password">
-
-                🔑 Change Password
-
-            </a>
-
-        </li>
-
-        <li><hr class="dropdown-divider"></li>
-
-        <li>
-
-            <a class="dropdown-item text-danger"
-               href="/logout">
-
-                🚪 Logout
-
-            </a>
-
-        </li>
-
-    </ul>
-
-</div>
-
-{% else %}
-
-<a href="/login" class="login-btn">
-    Login
-</a>
-
-<a href="/register" class="register-btn">
-    Register
-</a>
-
-{% endif %}
+    <div class="menu-icon">
+        <i class="fa-solid fa-bars"></i>
     </div>
 
-</div>
+    <a href="/" class="header-brand text-decoration-none">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}"
+             class="header-logo">
+
+        <div>
+
+            <h5>Vithlam's Society LLP</h5>
+
+            <span>Tailor Samaj Marriage Portal</span>
+
+        </div>
+
+    </a>
+
+    <div class="header-right">
+
+        {% if 'user_id' in session %}
+
+        <div class="dropdown">
+
+            <a href="#"
+               data-bs-toggle="dropdown">
+
+                <img
+                class="header-profile"
+                src="{{ url_for('static',
+                filename='uploads/users/' + (session.get('profile_photo') or 'default.png')) }}">
+
+            </a>
+
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+
+                <li><a class="dropdown-item" href="/profile">👤 My Profile</a></li>
+
+                <li><a class="dropdown-item" href="/my-marriage-profile">💍 My Marriage Profile</a></li>
+
+                <li><a class="dropdown-item" href="/add-marriage">➕ Add Marriage Profile</a></li>
+
+                <li><a class="dropdown-item" href="/id-card">🪪 My ID Card</a></li>
+
+                <li><a class="dropdown-item" href="/change-password">🔑 Change Password</a></li>
+
+                <li><hr class="dropdown-divider"></li>
+
+                <li><a class="dropdown-item text-danger" href="/logout">Logout</a></li>
+
+            </ul>
+
+        </div>
+
+        {% else %}
+
+        <a href="/login" class="header-btn login-small">
+            Login
+        </a>
+
+        <a href="/register" class="header-btn register-small">
+            Register
+        </a>
+
+        {% endif %}
+
+    </div>
+
+</header>
+
 {% block content %}
 {% endblock %}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
