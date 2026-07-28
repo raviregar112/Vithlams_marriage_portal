@@ -1051,8 +1051,8 @@ def add_advertisement():
             VALUES
             (%s,%s,%s,%s,%s,%s,%s)
             """,
-            (
-                session['user_id'],
+           (
+                None,
                 request.form['business_name'],
                 request.form['mobile'],
                 request.form['city'],
