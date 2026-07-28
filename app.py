@@ -423,7 +423,7 @@ def profile():
 
     )
 
-#Profile Update
+#Profile Upload
 @app.route('/upload-profile-photo', methods=['POST'])
 @login_required
 def upload_profile_photo():
@@ -698,6 +698,44 @@ def logout():
     return redirect('/login')
 
 
+# PUBLIC PROFILE
+
+@app.route("/public-profile/<int:id>")
+def public_profile(id):
+
+    conn = get_connection()
+
+    cursor = conn.cursor(dictionary=True)
+
+    cursor.execute("""
+
+        SELECT *
+
+        FROM marriage_profiles
+
+        WHERE id=%s
+
+        LIMIT 1
+
+    """,(id,))
+
+    profile = cursor.fetchone()
+
+    cursor.close()
+
+    conn.close()
+
+    if not profile:
+
+        return "Profile Not Found"
+
+    return render_template(
+
+        "public_profile.html",
+
+        profile=profile
+
+    )
 #add Marriage
 @app.route("/add-marriage", methods=["GET", "POST"])
 @login_required

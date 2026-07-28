@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container py-4">
+
+    <div class="public-profile-card">
+
+        <!-- Profile Image -->
+
+        <div class="text-center">
+
+            <img
+            src="{{ url_for('static',
+            filename='uploads/marriage/' + profile.profile_image) }}"
+            class="public-profile-image">
+
+            <h2 class="mt-3">
+
+                {{ profile.full_name }}
+
+            </h2>
+
+            <span class="public-badge">
+
+                ✔ Verified Member
+
+            </span>
+
+        </div>
+
+        <hr>
+
+        <!-- Personal Details -->
+
+        <h4 class="profile-heading">
+
+            Personal Information
+
+        </h4>
+
+        <div class="row">
+
+            <div class="col-6 mb-3">
+                <strong>Age</strong><br>
+                {{ profile.age }} Years
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Gender</strong><br>
+                {{ profile.gender }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Height</strong><br>
+                {{ profile.height }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Weight</strong><br>
+                {{ profile.weight }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Religion</strong><br>
+                {{ profile.religion }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Caste</strong><br>
+                {{ profile.caste }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Manglik</strong><br>
+                {{ profile.manglik }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>City</strong><br>
+                {{ profile.city }}
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Education -->
+
+        <h4 class="profile-heading">
+
+            Education & Career
+
+        </h4>
+
+        <div class="row">
+
+            <div class="col-6 mb-3">
+                <strong>Education</strong><br>
+                {{ profile.education }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Profession</strong><br>
+                {{ profile.profession }}
+            </div>
+
+            <div class="col-12 mb-3">
+                <strong>Company</strong><br>
+                {{ profile.company_name }}
+            </div>
+
+            <div class="col-12 mb-3">
+                <strong>Annual Income</strong><br>
+                {{ profile.annual_income }}
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Family -->
+
+        <h4 class="profile-heading">
+
+            Family Details
+
+        </h4>
+
+        <div class="row">
+
+            <div class="col-6 mb-3">
+                <strong>Father</strong><br>
+                {{ profile.father_name }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Occupation</strong><br>
+                {{ profile.father_occupation }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Mother</strong><br>
+                {{ profile.mother_name }}
+            </div>
+
+            <div class="col-6 mb-3">
+                <strong>Occupation</strong><br>
+                {{ profile.mother_occupation }}
+            </div>
+
+        </div>
+
+        <hr>
+
+        <!-- Address -->
+
+        <h4 class="profile-heading">
+
+            Address
+
+        </h4>
+
+        <p>
+
+            {{ profile.address }}<br>
+
+            {{ profile.city }}, {{ profile.state }} - {{ profile.pincode }}
+
+        </p>
+
+        <hr>
+
+        <!-- Contact -->
+
+        <h4 class="profile-heading">
+
+            Contact Details
+
+        </h4>
+
+        {% if session.get('user_id') %}
+
+            <p><strong>Mobile :</strong> {{ profile.contact_number }}</p>
+
+            <p><strong>WhatsApp :</strong> {{ profile.whatsapp }}</p>
+
+            <p><strong>Email :</strong> {{ profile.email }}</p>
+
+        {% else %}
+
+            <div class="contact-lock">
+
+                🔒 Login to View Contact Details
+
+            </div>
+
+        {% endif %}
+
+        <div class="mt-4">
+
+            <a href="/" class="btn btn-secondary">
+
+                ← Back
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
