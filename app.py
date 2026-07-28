@@ -1012,24 +1012,23 @@ def marriage_details(id):
         profile=profile
     )
 
-
-@app.route('/add-advertisement', methods=['GET','POST'])
+@app.route('/add-advertisement', methods=['GET', 'POST'])
 @admin_required
 def add_advertisement():
 
     if request.method == 'POST':
 
-        image = request.files['image']
+        media = request.files["media_file"]
 
         filename = ""
 
-        if image and image.filename:
+        if media and media.filename:
 
-            filename = secure_filename(image.filename)
+            filename = secure_filename(media.filename)
 
-            image.save(
+            media.save(
                 os.path.join(
-                    'static/uploads/advertisements',
+                    "static/uploads/advertisements",
                     filename
                 )
             )
@@ -1045,17 +1044,21 @@ def add_advertisement():
                 business_name,
                 mobile,
                 city,
-                image
+                image,
+                media_type,
+                ad_link
             )
             VALUES
-            (%s,%s,%s,%s,%s)
+            (%s,%s,%s,%s,%s,%s,%s)
             """,
             (
                 session['user_id'],
                 request.form['business_name'],
                 request.form['mobile'],
                 request.form['city'],
-                filename
+                filename,
+                request.form["media_type"],
+                request.form["ad_link"]
             )
         )
 
@@ -1069,6 +1072,7 @@ def add_advertisement():
     return render_template(
         'advertisement/add_advertisement.html'
     )
+
 @app.route('/admin-login', methods=['GET', 'POST'])
 def admin_login():
 
