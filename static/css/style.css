@@ -14,11 +14,11 @@ MOBILE HEADER
 
 .mobile-header{
 
-    background:#7b1113;
+    background:#7B1113;
 
-    padding:12px 15px;
-    
-    min-height:95px;
+    padding:8px 15px;
+
+    height:75px;
 
     display:flex;
 
@@ -40,75 +40,63 @@ MOBILE HEADER
 
     color:#fff;
 
-    font-size:25px;
+    font-size:22px;
 
     cursor:pointer;
 
 }
+
+.menu-icon i{
+
+    display:block;
+
+    line-height:1;
+
+}
+
 .header-brand{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-align-items:center;
+    align-items:center;
 
-justify-content:center;
+    justify-content:center;
 
-text-decoration:none;
+    text-decoration:none;
+
+    flex:1;
 
 }
 
 .header-logo{
 
-width:58px;
+    width:42px;
 
-height:58px;
+    height:42px;
 
-border-radius:50%;
+    border-radius:50%;
 
-margin-bottom:6px;
+    margin-bottom:3px;
 
 }
 
 .header-title{
 
-display:block !important;
-
-font-size:13px;
-
-font-weight:700;
-
-color:#7B1113 !important;
-
-margin-top:5px;
-
-margin-bottom:0;
-
-text-align:center;
-
-white-space:nowrap;
-
-line-height:18px;
-
-}
-.header-brand h5{
-
     margin:0;
 
-    color:#fff;
+    color:#fff !important;
 
-    font-size:19px;
+    font-size:11px;
 
-    font-weight:700;
+    font-weight:600;
 
-}
+    text-align:center;
 
-.header-brand span{
+    line-height:1.2;
 
-    color:#ffd95a;
-
-    font-size:13px;
+    white-space:nowrap;
 
 }
 
@@ -122,50 +110,19 @@ line-height:18px;
 
 }
 
-.header-btn{
-
-    text-decoration:none;
-
-    padding:8px 14px;
-
-    border-radius:8px;
-
-    font-size:14px;
-
-    font-weight:600;
-
-}
-
-.login-small{
-
-    background:#fff;
-
-    color:#7b1113;
-
-}
-
-.register-small{
-
-    background:#d60000;
-
-    color:#fff;
-
-}
-
 .header-profile{
 
-    width:42px;
+    width:38px;
 
-    height:42px;
+    height:38px;
 
     border-radius:50%;
 
-    border:2px solid white;
+    border:2px solid #fff;
 
     object-fit:cover;
 
 }
-
 /* =========================
    NAVBAR
 ========================= */
@@ -316,6 +273,7 @@ font-size:11px;
 }
 
 }
+
 /*=========================
 PREMIUM ADVERTISEMENT
 =========================*/
