@@ -234,49 +234,45 @@ PREMIUM SEARCH SECTION
     </div>
 
 </div>
+{% if 'user_id' not in session %}
+
 <!--====================================
 WELCOME MESSAGE
 =====================================-->
 
 <section class="welcome-section">
 
-<div class="container">
+    <div class="container">
 
-<div class="welcome-box">
+        <div class="welcome-box">
 
-<h2>
+            <h2>
+                💍 Welcome to Shri Vithlam's Society LLP
+            </h2>
 
-💍 Welcome to Shri Vithlam's Society LLP
+            <p>
+                A trusted matrimonial platform dedicated to helping families connect,
+                build meaningful relationships, and find the perfect life partner
+                within our community.
+            </p>
 
-</h2>
+            <p>
+                We believe every successful journey begins with trust, respect,
+                and shared values. Join our growing community and take the first
+                step towards a beautiful future.
+            </p>
 
-<p>
+            <a href="/register" class="welcome-btn">
+                Join Our Community
+            </a>
 
-A trusted matrimonial platform dedicated to helping families connect,
-build meaningful relationships, and find the perfect life partner
-within our community.
+        </div>
 
-</p>
-
-<p>
-
-We believe every successful journey begins with trust, respect,
-and shared values. Join our growing community and take the first
-step towards a beautiful future.
-
-</p>
-
-<a href="/register" class="welcome-btn">
-
-Join Our Community
-
-</a>
-
-</div>
-
-</div>
+    </div>
 
 </section>
+
+{% endif %}
 <!--====================================
 FEATURED PROFILES
 =====================================-->
