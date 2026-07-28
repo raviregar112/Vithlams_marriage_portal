@@ -38,12 +38,12 @@ class="whatsapp-btn">
 </a>
 
 </div>
-
 <!-- Advertisement Banner -->
 
 <div id="carouselExample"
      class="carousel slide ad-carousel"
-     data-bs-ride="carousel">
+     data-bs-ride="carousel"
+     data-bs-interval="4000">
 
     <div class="carousel-inner">
 
@@ -55,11 +55,30 @@ class="whatsapp-btn">
 
                 <div class="ad-media">
 
+                    {% if ad.media_type == "video" %}
+
+                    <video
+                        class="ad-video"
+                        autoplay
+                        muted
+                        loop
+                        playsinline>
+
+                        <source
+                        src="{{ url_for('static',
+                        filename='uploads/advertisements/' + ad.image) }}">
+
+                    </video>
+
+                    {% else %}
+
                     <img
                     src="{{ url_for('static',
                     filename='uploads/advertisements/' + ad.image) }}"
                     class="ad-image"
                     alt="Advertisement">
+
+                    {% endif %}
 
                 </div>
 

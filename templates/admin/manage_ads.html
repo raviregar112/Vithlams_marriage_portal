@@ -18,6 +18,7 @@
                     <th>Business</th>
                     <th>City</th>
                     <th>Status</th>
+                    <th>Link</th>
                     <th>Action</th>
                 </tr>
 
@@ -31,16 +32,28 @@
 
                     <td>{{ ad.id }}</td>
 
-                    <td>
+                                        <td>
 
-                        <img
-                        src="{{ url_for('static',
-                        filename='uploads/advertisements/' +
-                        ad.image) }}"
-                        width="120">
+                    {% if ad.media_type == "video" %}
+
+                    <video width="120" controls muted>
+
+                    <source
+                    src="{{ url_for('static',
+                    filename='uploads/advertisements/' + ad.image) }}">
+
+                    </video>
+
+                    {% else %}
+
+                    <img
+                    src="{{ url_for('static',
+                    filename='uploads/advertisements/' + ad.image) }}"
+                    width="120">
+
+                    {% endif %}
 
                     </td>
-
                     <td>
                         {{ ad.business_name }}
                     </td>
@@ -52,7 +65,24 @@
                     <td>
                         {{ ad.status }}
                     </td>
+                        <td>
 
+                        {% if ad.ad_link %}
+
+                        <a href="{{ ad.ad_link }}"
+                        target="_blank">
+
+                        Open
+
+                        </a>
+
+                        {% else %}
+
+                        -
+
+                        {% endif %}
+
+                        </td>
                     <td>
 
                         <a href="/approve-ad/{{ ad.id }}"
